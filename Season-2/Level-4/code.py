@@ -46,7 +46,8 @@ def index():
                                    planet=sanitized_planet, 
                                    info=get_planet_info(sanitized_planet))
         else:
-            return '<h2>Please enter a planet name.</h2>'
+            from markupsafe import escape
+            sanitized_planet = escape(planet)
 
     return render_template('index.html')
 
